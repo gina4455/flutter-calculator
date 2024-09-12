@@ -48,16 +48,17 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   }
 
   Widget _buildButton(String value) {
-    return Expanded(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 6),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.blueGrey[200], // Match background color
           //onPrimary: Colors.black,
           padding:
-              const EdgeInsets.all(12), // Reduced padding for smaller buttons
-          minimumSize: const Size(60, 60), // Set a smaller size for the buttons
+              const EdgeInsets.all(18), // Reduced padding for smaller buttons
+          minimumSize: const Size(90, 60), // Set a smaller size for the buttons
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8), // Keep a slight roundness
+            borderRadius: BorderRadius.circular(25), // Keep a slight roundness
           ),
         ),
         onPressed: () => _onButtonPressed(value),
@@ -115,8 +116,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                     style: const TextStyle(
                       fontSize: 48,
                       fontWeight: FontWeight.bold,
-                      color: Colors
-                          .black, // Match result text color to ensure visibility
+                      color: Colors.black,
                     ),
                   ),
                 ],
@@ -133,7 +133,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                   _buildButton('/'),
                 ],
               ),
-              const SizedBox(height: 10), // Add spacing for visual clarity
+              const SizedBox(height: 30), // Add spacing for visual clarity
               Row(
                 children: [
                   _buildButton('4'),
@@ -142,7 +142,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                   _buildButton('*'),
                 ],
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 30),
               Row(
                 children: [
                   _buildButton('1'),
@@ -151,7 +151,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                   _buildButton('-'),
                 ],
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 30),
               Row(
                 children: [
                   _buildButton('0'),
@@ -160,8 +160,15 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                   _buildButton('+'),
                 ],
               ),
-              const SizedBox(
-                  height: 30), // Add space between buttons and bottom edge
+              const SizedBox(height: 30),
+              Row(
+                children: [
+                  _buildButton('.'),
+                  _buildButton('%'),
+                  _buildButton('√'),
+                  _buildButton('mod'),
+                ],
+              ),
             ],
           ),
         ],
